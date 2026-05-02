@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>勉強ログ</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>勉強ログ</h2>
+
+<div class="input-area">
+  科目：
+  <input type="text" id="subject">
+  時間（分）：
+  <input type="number" id="time">
+  <button onclick="addStudy()">追加</button>
+</div>
+
+<h3>記録</h3>
+<ul id="list"></ul>
+
+<h3>合計時間</h3>
+<p id="total"></p>
+
+<h3>グラフ</h3>
+<canvas id="chart"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
