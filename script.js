@@ -1,6 +1,6 @@
 // データの初期化（ローカルストレージから取得）
 let data = JSON.parse(localStorage.getItem("studyData")) || [];
-let subjects = JSON.parse(localStorage.getItem("studySubjects")) || ["数学", "英語", "国語", "プログラミング"];
+let subjects = JSON.parse(localStorage.getItem("studySubjects")) || ["数学", "英語", "国語"];
 
 // 保存処理
 function saveAll() {
