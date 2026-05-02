@@ -1,34 +1,172 @@
+/* 全体設定 */
+:root {
+  --primary-color: #4f46e5;
+  --primary-hover: #4338ca;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-sub: #64748b;
+  --border-color: #e2e8f0;
+}
+
 body {
-  font-family: sans-serif;
-  margin: 20px;
-  background: #f5f5f5;
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 h2 {
-  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: -0.025em;
 }
 
-.input-area {
-  margin-bottom: 20px;
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--text-sub);
 }
 
-input {
-  margin: 0 5px;
-  padding: 5px;
+/* カードスタイル */
+.card {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  margin-bottom: 30px;
 }
 
+/* 入力エリア */
+.input-group {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.input-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 150px;
+}
+
+.input-item label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: var(--text-sub);
+}
+
+input, select {
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* ボタン */
 button {
-  padding: 5px 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
   cursor: pointer;
+  border: none;
+  transition: all 0.2s;
 }
 
-ul {
-  background: white;
-  padding: 10px;
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background: rgba(79, 70, 229, 0.05);
+}
+
+/* レイアウト */
+.layout-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .layout-grid { grid-template-columns: 1fr; }
+}
+
+/* リスト表示 */
+.log-list, .management-list {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 0;
   list-style: none;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  overflow: hidden;
 }
 
-li {
-  padding: 5px 0;
-  border-bottom: 1px solid #ddd;
+.log-list li, .management-list li {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.log-list li:last-child { border-bottom: none; }
+
+.total-badge {
+  background: var(--primary-color);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.del-btn {
+  color: #ef4444;
+  background: none;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+}
+
+.del-btn:hover {
+  background: #fef2f2;
+}
+
+.chart-container {
+  margin-top: 40px;
 }
