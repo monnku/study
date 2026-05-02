@@ -2,8 +2,11 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>勉強ログ</title>
 <link rel="stylesheet" href="style.css">
+<!-- Google Fonts: Noto Sans JP -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <!-- Google tag (gtag.js) -->
@@ -12,30 +15,52 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-31KJXXHH1Q');
 </script>
 </head>
 <body>
 
-<h2>勉強ログ</h2>
+<div class="container">
+  <h2>勉強ログ</h2>
 
-<div class="input-area">
-  科目：
-  <input type="text" id="subject">
-  時間（分）：
-  <input type="number" id="time">
-  <button onclick="addStudy()">追加</button>
+  <div class="card">
+    <div class="input-group">
+      <div class="input-item">
+        <label>科目</label>
+        <select id="subjectSelect"></select>
+      </div>
+      <div class="input-item">
+        <label>時間（分）</label>
+        <input type="number" id="time" placeholder="例: 60">
+      </div>
+      <button class="btn-primary" onclick="addStudy()">記録を追加</button>
+    </div>
+  </div>
+
+  <div class="layout-grid">
+    <div class="side">
+      <h3>科目管理</h3>
+      <div class="subject-manage">
+        <input type="text" id="newSubjectName" placeholder="新しい科目名">
+        <button class="btn-outline" onclick="addNewSubject()">追加</button>
+      </div>
+      <ul id="subjectList" class="management-list"></ul>
+    </div>
+
+    <div class="main">
+      <div class="flex-header">
+        <h3>最近の記録</h3>
+        <p id="total" class="total-badge"></p>
+      </div>
+      <ul id="logList" class="log-list"></ul>
+      
+      <div class="chart-container">
+        <h3>学習状況</h3>
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+  </div>
 </div>
-
-<h3>記録</h3>
-<ul id="list"></ul>
-
-<h3>合計時間</h3>
-<p id="total"></p>
-
-<h3>グラフ</h3>
-<canvas id="chart"></canvas>
 
 <script src="script.js"></script>
 </body>
