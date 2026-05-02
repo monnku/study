@@ -12,6 +12,14 @@ function addStudy() {
 
   data.push({ subject, time });
   save();
+
+  if (typeof gtag === "function") {
+    gtag("event", "add_study", {
+      subject: subject,
+      time: time
+    });
+  }
+
   render();
 }
 
@@ -29,7 +37,7 @@ function render() {
     summary[d.subject] += d.time;
 
     let li = document.createElement("li");
-    li.textContent = `${d.subject} - ${d.time}分`;
+    li.textContent = d.subject + " - " + d.time + "分";
     list.appendChild(li);
   });
 
